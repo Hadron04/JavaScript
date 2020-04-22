@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kalkulator</title>
+</head>
+
+<body>
+    <table border="1">
+        <tbody>
+            <tr>
+                <td><button onclick="myFunction('7')">7</button></td>
+                <td><button onclick="myFunction('8')">8</button></td>
+                <td><button onclick="myFunction('9')">9</button></td>
+                <td><button onclick="myFunction('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="myFunction('4')">4</button></td>
+                <td><button onclick="myFunction('5')">5</button></td>
+                <td><button onclick="myFunction('6')">6</button></td>
+                <td><button onclick="myFunction('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="myFunction('1')">1</button></td>
+                <td><button onclick="myFunction('2')">2</button></td>
+                <td><button onclick="myFunction('3')">3</button></td>
+                <td><button onclick="myFunction('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="myFunction('C')">C</button></td>
+                <td><button onclick="myFunction('0')">0</button></td>
+                <td><button onclick="myFunction(',')">,</button></td>
+                <td><button onclick="myFunction('*')">*</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="wynik">0</p>
+
+    <button onclick="myFunction(10)">Try it</button>
+
+    <script type="text/javascript">
+        function myFunction(x) {
+            document.getElementById("wynik").innerHTML = x;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Suma z zakresu od x do y</title>
+</head>
+
+<body>
+
+    <p id="wynik1">x</p>
+    <p id="wynik2">y</p>
+    <p id="wynik3">wynik</p>
+    <p id="wynik4">wynik</p>
+    <input type="text" id="xVal" name="xVal"><br>
+    <input type="text" id="yVal" name="yVal"><br>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <script type="text/javascript">
+        var x = document.getElementById("xVal");;
+        var y = document.getElementById("yVal");
+
+        var sumaprzedzialu1 = function (x, y) {
+            var suma = 0;
+            for (i = x + 1; i < y; i++) {
+                suma = i + suma;
+            }
+            return suma;
+        };
+
+        var sumaprzedzialu2 = function (x, y) {
+            return (y > x) ? (x + y) / 2 * (y - x - 1) : 0;
+        };
+
+        function myFunction() {
+            document.getElementById("wynik1").innerHTML = "x: " + parseInt(x.value);
+            document.getElementById("wynik2").innerHTML = "y: " + parseInt(y.value);
+            document.getElementById("wynik3").innerHTML = "Wynik funkcji z pętlą: " + sumaprzedzialu1(parseInt(x.value),parseInt(y.value));
+            document.getElementById("wynik4").innerHTML = "Wynik funkcji bez pętli: " + sumaprzedzialu2(parseInt(x.value),parseInt(y.value));
+        }
+
+    </script>
+</body>
+
+</html>
