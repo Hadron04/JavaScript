@@ -12,35 +12,51 @@
                 <td><button onclick="myFunction('7')">7</button></td>
                 <td><button onclick="myFunction('8')">8</button></td>
                 <td><button onclick="myFunction('9')">9</button></td>
-                <td><button onclick="myFunction('+')">+</button></td>
+                <td><button onclick="add(bufor)">+</button></td>
+                <td><button onclick="myFunction('√')">√</button></td>
             </tr>
             <tr>
                 <td><button onclick="myFunction('4')">4</button></td>
                 <td><button onclick="myFunction('5')">5</button></td>
                 <td><button onclick="myFunction('6')">6</button></td>
                 <td><button onclick="myFunction('-')">-</button></td>
+                <td><button onclick="myFunction('^2')">^2</button></td>
+                <td><button onclick="myFunction('x^y')">x^y</button></td>
             </tr>
             <tr>
                 <td><button onclick="myFunction('1')">1</button></td>
                 <td><button onclick="myFunction('2')">2</button></td>
                 <td><button onclick="myFunction('3')">3</button></td>
                 <td><button onclick="myFunction('/')">/</button></td>
+                <td><button onclick="myFunction('-')">-</button></td>
             </tr>
             <tr>
                 <td><button onclick="myFunction('C')">C</button></td>
                 <td><button onclick="myFunction('0')">0</button></td>
-                <td><button onclick="myFunction(',')">,</button></td>
+                <td><button onclick="myFunction('.')">,</button></td>
                 <td><button onclick="myFunction('*')">*</button></td>
             </tr>
         </tbody>
     </table>
+    <input type="text" id="myText" value="">
+    <p id="wyswietacz">0</p>
     <p id="wynik">0</p>
 
     <button onclick="myFunction(10)">Try it</button>
 
     <script type="text/javascript">
+        var bufor = "";
+        akumulator = 0.0;
         function myFunction(x) {
-            document.getElementById("wynik").innerHTML = x;
+            bufor = bufor + x;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        
+        }
+        function add() {
+            akumulator = akumulator + parseFloat(bufor);
+            bufor = "+"
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
         }
 
     </script>
