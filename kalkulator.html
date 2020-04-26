@@ -13,28 +13,30 @@
                 <td><button onclick="myFunction('8')">8</button></td>
                 <td><button onclick="myFunction('9')">9</button></td>
                 <td><button onclick="add(bufor)">+</button></td>
-                <td><button onclick="myFunction('√')">√</button></td>
+                <td><button onclick="sqrt('√')">√</button></td>
             </tr>
             <tr>
                 <td><button onclick="myFunction('4')">4</button></td>
                 <td><button onclick="myFunction('5')">5</button></td>
                 <td><button onclick="myFunction('6')">6</button></td>
-                <td><button onclick="myFunction('-')">-</button></td>
-                <td><button onclick="myFunction('^2')">^2</button></td>
-                <td><button onclick="myFunction('x^y')">x^y</button></td>
+                <td><button onclick="sub()">-</button></td>
+                <td><button onclick="equal()">=</button></td>
             </tr>
             <tr>
                 <td><button onclick="myFunction('1')">1</button></td>
                 <td><button onclick="myFunction('2')">2</button></td>
                 <td><button onclick="myFunction('3')">3</button></td>
-                <td><button onclick="myFunction('/')">/</button></td>
-                <td><button onclick="myFunction('-')">-</button></td>
+                <td><button onclick="div('/')">/</button></td>
+                <td><button onclick="sin()">sin</button></td>
+                <td><button onclick="tg()">tg</button></td>
             </tr>
             <tr>
-                <td><button onclick="myFunction('C')">C</button></td>
+                <td><button onclick="clearBuf()">C</button></td>
                 <td><button onclick="myFunction('0')">0</button></td>
                 <td><button onclick="myFunction('.')">,</button></td>
-                <td><button onclick="myFunction('*')">*</button></td>
+                <td><button onclick="multi('*')">*</button></td>
+                <td><button onclick="cos()">cos</button></td>
+                <td><button onclick="ctg()">ctg</button></td>
             </tr>
         </tbody>
     </table>
@@ -42,22 +44,142 @@
     <p id="wyswietacz">0</p>
     <p id="wynik">0</p>
 
-    <button onclick="myFunction(10)">Try it</button>
-
     <script type="text/javascript">
         var bufor = "";
         akumulator = 0.0;
+        operator = "";
+
+
         function myFunction(x) {
             bufor = bufor + x;
             document.getElementById("wyswietacz").innerHTML = bufor;
-        
         }
+
+        function doOperation(op) {
+            switch (op) {
+                case "":
+                    akumulator = parseFloat(bufor);
+                    break;
+                case '_PLUS':
+                    akumulator = akumulator + parseFloat(bufor);
+                    break;
+                case '_MINUS':
+                    akumulator = akumulator - parseFloat(bufor);
+                    break;
+                case '_MULTI':
+                    akumulator = akumulator * parseFloat(bufor);
+                    break;
+                case '_DIV':
+                    akumulator = akumulator / parseFloat(bufor);
+                    break;
+                //                case '_POV':
+                //                    akumulator = Math.pov(akumulator, parseFloat(bufor));                    
+                //                    break;
+                default:
+                    break;
+            }
+
+        }
+
         function add() {
-            akumulator = akumulator + parseFloat(bufor);
-            bufor = "+"
+            doOperation(operator);
+            bufor = "";
+            operator = "_PLUS";
             document.getElementById("wynik").innerHTML = akumulator;
             document.getElementById("wyswietacz").innerHTML = bufor;
         }
+
+        function sub() {
+            doOperation(operator);
+            bufor = ""
+            operator = "_MINUS"
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+        function multi() {
+            doOperation(operator);
+            bufor = ""
+            operator = "_MULTI"
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+        function div() {
+            doOperation(operator);
+            bufor = ""
+            operator = "_DIV"
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+        function sqrt() {
+            doOperation(operator);
+            akumulator = Math.sqrt(akumulator);
+            bufor = ""
+            operator = "_SQRT"
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+
+        /*
+                function pov2() {
+                    doOperation(operator);
+                    akumulator = Math.pov(akumulator, 2);
+                    bufor = ""
+                    operator = "_POV2"
+                    document.getElementById("wynik").innerHTML = akumulator;
+                    document.getElementById("wyswietacz").innerHTML = bufor;
+                }
+                function pov() {
+                    doOperation(operator);
+                    bufor = ""
+                    operator = "_POV"
+                    document.getElementById("wynik").innerHTML = akumulator;
+                    document.getElementById("wyswietacz").innerHTML = bufor;
+                }
+        */
+
+        function sin() {
+            doOperation(operator);
+            akumulator = Math.sin(akumulator);
+            bufor = "";
+            operator = "_SIN"
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+        function cos() {
+            doOperation(operator);
+            akumulator = Math.cos(akumulator);
+            bufor = ""
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+        function tg() {
+            doOperation(operator);
+            akumulator = Math.tg(akumulator);
+            bufor = ""
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+        function ctg() {
+            doOperation(operator);
+            akumulator = Math.cos(akumulator);
+            bufor = ""
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+
+        function equal() {
+            doOperation(operator);
+            bufor = "";
+            operator = "";
+            document.getElementById("wynik").innerHTML = akumulator;
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+
+        function clearBuf() {
+            bufor = bufor.slice(0,bufor.length - 1);
+            document.getElementById("wyswietacz").innerHTML = bufor;
+        }
+
 
     </script>
 </body>
