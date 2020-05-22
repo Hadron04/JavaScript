@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>JavaScript CheckBox</title>
+    <title>HTML Quiz</title>
     <meta charset="windows-1252">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
@@ -16,7 +16,7 @@
             if ((s1 == "slct1") && (drop.value == "ul"))
                 label.style.color = '#00FF00';
             else
-                if ((s1 == "slct2") && (drop.value == "list"))
+                if ((s1 == "slct2") && (drop.value == "ol"))
                     label.style.color = '#00FF00';
                 else
                     label.style.color = '#FF0000';
@@ -49,11 +49,11 @@
 </head>
 
 <body>
-
-
+    <h1>Quiz z zakreu HTML</h1>
+    
     <p id="pgh">Co oznacza skrót HTML?</p>
-    <input type="checkbox" class="chb" onclick="func();" />Home Tool Markup Language
     <input type="checkbox" class="chb" onclick="func();" />Hyper Text Markup Language
+    <input type="checkbox" class="chb" onclick="func();" />Home Tool Markup Language
     <input type="checkbox" class="chb" onclick="func();" />Hyperlinks and Text Markup Language
     <hr />
     <p id="pop">Znacznik < b>...< /b> odpowida za:</p>
@@ -84,14 +84,14 @@
     Wybierz swoją odpowiedź:
     <select id="slct2" name="slct2" onchange="populate(this.id,'slct2label')">
         <option value=""></option>
-        <option value="ol">
-            < ol>
+        <option value="list">
+            < list>
         </option>
         <option value="dl">
             < dl>
         </option>
-        <option value="list">
-            < list>
+        <option value="ol">
+            < ol>
         </option>
         <option value="ul">
             < ul>
