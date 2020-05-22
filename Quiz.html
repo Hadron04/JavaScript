@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript CheckBox</title>
+    <meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function populate(s1, s2) {
+            var drop = document.getElementById(s1);
+            var label = document.getElementById(s2);
+            label.style.color = '#000000';
+
+            //label.innerHTML = drop.value;
+            if ((s1 == "slct1") && (drop.value == "ul"))
+                label.style.color = '#00FF00';
+            else
+                if ((s1 == "slct2") && (drop.value == "list"))
+                    label.style.color = '#00FF00';
+                else
+                    label.style.color = '#FF0000';
+
+            if (drop.value == "") label.style.color = '#000000';
+        }
+        function listboxresult() {
+            var spanresult = document.getElementById("result");
+            spanresult.value = "";
+            var x = document.getElementById("sel");
+            if (x.value == "") spanresult.innerHTML = "Wybierz chociaż jedną odpowiedź";
+            switch (x.value) {
+                case "Prawda":
+                    spanresult.innerHTML = "Dobra odpowiedź odpowiedź";
+                    spanresult.style.color = "green";
+                    break;
+                case "Fałsz":
+                    spanresult.innerHTML = "Zła odpowiedź";
+                    spanresult.style.color = "red";
+                    break;
+                default:
+                    spanresult.innerHTML = "Wybierz chociaż jedną odpowiedź";
+                    spanresult.style.color = "black";
+                    break;
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+
+    <p id="pgh">Co oznacza skrót HTML?</p>
+    <input type="checkbox" class="chb" onclick="func();" />Home Tool Markup Language
+    <input type="checkbox" class="chb" onclick="func();" />Hyper Text Markup Language
+    <input type="checkbox" class="chb" onclick="func();" />Hyperlinks and Text Markup Language
+    <hr />
+    <p id="pop">Znacznik < b>...< /b> odpowida za:</p>
+    <input type="checkbox" class="khc" onclick="pop();" />Podkreślenie tekstu
+    <input type="checkbox" class="khc" onclick="pop();" />Pochylenie tekstu
+    <input type="checkbox" class="khc" onclick="pop();" />Przekreślenie tekstu
+    <input type="checkbox" class="khc" onclick="pop();" />Pogrubienie tekstu
+    <hr />
+    <p id="slct1label">Jak zrobić listę punktowaną?</p>
+    Wybierz swoją odpowieź:
+    <select id="slct1" name="slct1" onchange="populate(this.id,'slct1label')">
+        <option value=""></option>
+        <option value="ol">
+            < ol>
+        </option>
+        <option value="dl">
+            < dl>
+        </option>
+        <option value="list">
+            < list>
+        </option>
+        <option value="ul">
+            < ul>
+        </option>
+    </select>
+    <hr />
+    <p id="slct2label">Jak zrobić listę numerową?</p>
+    Wybierz swoją odpowiedź:
+    <select id="slct2" name="slct2" onchange="populate(this.id,'slct2label')">
+        <option value=""></option>
+        <option value="ol">
+            < ol>
+        </option>
+        <option value="dl">
+            < dl>
+        </option>
+        <option value="list">
+            < list>
+        </option>
+        <option value="ul">
+            < ul>
+        </option>
+    </select>
+    <script>
+
+
+    </script>
+    <hr />
+    <p>Elementy bloku są zwykle wyświetlane bez rozpoczynania nowej linii.</p>
+    <select id="sel" multiple="multiple">
+        <option value="Prawda">Prawda</option>
+        <option value="Fałsz">Fałsz</option>
+    </select>
+    <span id="result">Podaj odpowiedź</span> <br>
+    <input type="button" id="but1" value="Click" onclick="listboxresult();" />
+    <hr />
+    <p id="koko">Jaki jest prawidłowy element HTML do odtwarzania plików audio?</p>
+    <form>
+        <input type="radio" name="colors" id="sound" onclick=(checkRadio())>
+        < sound><br>
+            <input type="radio" name="colors" id="audio" onclick=(checkRadio())>
+            < audio><br>
+                <input type="radio" name="colors" id="wideo" onclick=(checkRadio())>
+                < wideo><br>
+    </form>
+    <script>
+        function checkRadio() {
+            var pot = document.getElementById("audio");
+            document.getElementById("koko").style.color = "black";
+            if (pot.checked) {
+                document.getElementById("koko").style.color = '#00FF00';
+            }
+        }
+    </script>
+    <script>
+
+        function func() {
+            var chb = document.getElementsByClassName('chb');
+
+            if (chb[0].checked) {
+                document.getElementById('pgh').style.color = '#00FF00';
+            }
+            if (!chb[0].checked) {
+                document.getElementById('pgh').style.color = '#000000';
+            }
+
+            if (chb[1].checked) {
+                document.getElementById('pgh').style.color = '#FF0000';
+            }
+            
+            if (chb[2].checked) {
+                document.getElementById('pgh').style.color = '#FF0000';
+            }
+            
+
+        }
+
+        function pop() {
+            var khc = document.getElementsByClassName('khc');
+
+            if (khc[3].checked) {
+                document.getElementById('pop').style.color = '#00FF00';
+            }
+            if (!khc[3].checked) {
+                document.getElementById('pop').style.color = '#000000';
+            }
+
+            if (khc[0].checked) {
+                document.getElementById('pop').style.color = '#FF0000';
+            }
+            
+            if (khc[1].checked) {
+                document.getElementById('pop').style.color = '#FF0000';
+            }
+            
+            if (khc[2].checked) {
+                document.getElementById('pop').style.color = '#FF0000';
+            }
+            
+        }
+
+
+    </script>
+
+</body>
+
+</html>
